@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Signup & Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 130px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-grow: 1; /* Allow the container to grow and take up available space */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        header {
+            background-color: #4CAF50;
+            height: 70px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header img {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            margin-top: auto; /* Push footer to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="uploads/LOGO.png" height="50px"></a>
+    </header>
+    <div class="container">
+        <h1>Blood Bank Login</h1>
+        <form action="login.php" method="POST">
+            <h2>Login</h2>
+            <input type="text" id="phone" name="phone" placeholder="Mail ID of Bank" required>
+            <input type="text" id="regno" name="regno" placeholder="Bank ID" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <p>© 2024 UTHIRAM. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

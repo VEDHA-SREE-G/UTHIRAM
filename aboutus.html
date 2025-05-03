@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LifeSaver Blood Bank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+    background-color: #4CAF50;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0; /* This makes sure the header stays at the top of the page */
+    left: 0;
+    z-index: 1000; /* Ensures the header stays above other content */
+}
+header img {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #4CAF50;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #333;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .mission {
+            background-color: #e6ffe6;
+            padding: 15px;
+            border-left: 5px solid #4CAF50;
+            margin: 20px 0;
+        }
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .team-member {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            flex: 1 1 calc(45% - 20px); /* Two cards per row with some spacing */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: scale(1.02);
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <a href="index.html"> <img src="uploads/LOGO.png" height=50px></a>
+     </header>
+    <div class="container">
+        <BR>
+        <h2>Our Mission</h2>
+        <div class="mission">
+            <p>At Uthiram, our mission is to ensure that every patient in need has access to safe and sufficient blood supplies. We aim to connect blood banks with those in need, utilizing advanced technology to streamline the process.</p>
+        </div>
+
+        <h2>What We Do</h2>
+        <p>Uthiram is dedicated to collecting, processing, and distributing blood and blood products to hospitals and healthcare facilities. Our innovative automatic mail system ensures that requests for blood are promptly sent to nearby blood banks, enabling them to respond quickly to urgent needs.</p>
+        <p>Our logistics team is specially trained to manage the transportation of blood supplies, ensuring timely deliveries while maintaining the highest safety standards. We are committed to serving our community by bridging the gap between donors and recipients effectively.</p>
+
+        <h2>Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <h3>Blood Collection Specialists</h3>
+                <p>Our trained professionals ensure safe and efficient blood collection processes, providing a comfortable experience for donors.</p>
+            </div>
+            <div class="team-member">
+                <h3>Processing Technicians</h3>
+                <p>These experts are responsible for testing and processing blood to ensure it meets the highest safety standards before distribution.</p>
+            </div>
+            <div class="team-member">
+                <h3>Logistics Coordinators</h3>
+                <p>Our logistics team ensures that blood supplies are transported safely and promptly to hospitals and healthcare facilities in need.</p>
+            </div>
+            <div class="team-member">
+                <h3>Community Outreach Team</h3>
+                <p>Dedicated to raising awareness about the importance of blood donation and organizing community blood drives to engage donors.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© 2024 UTHIRAM. All Rights Reserved.</p>
+       
+    </footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOOD BANK</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header {
+    background-color: #4CAF50;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0; /* This makes sure the header stays at the top of the page */
+    left: 0;
+    z-index: 1000; /* Ensures the header stays above other content */
+}
+header img {
+    margin-left: 20px;
+    margin-top: 10px;
+}body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+    margin-top: 80px; /* Adjust the margin-top to prevent the content from being hidden under the header */
+}
+
+
+        .styled-form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;  /* Keep the footer fixed at the bottom */
+    bottom: 0;        /* Align it to the bottom of the page */
+    left: 0;          /* Align it to the left edge */
+    width: 100%;      /* Make sure it takes up the full width of the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;    /* Make sure it appears above other elements */
+}
+
+.footer p {
+    margin: 0; /* Reset margin to avoid any unwanted spacing */
+}
+a{
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="uploads/LOGO.png" height=50px></a>
+     </header>
+    <form id="bankForm" enctype="multipart/form-data">
+        <h2>BLOOD BANK DETAILS</h2>
+        <br><br>
+        <hr>
+        <br>
+        <label>BLOOD BANK NAME</label>
+        <input type="text" name="bank" required>
+        <label>Mail ID</label>
+        <input type="text" name="phone" required>
+        <label>Blood Bank ID</label>
+        <input type="number" name="regno" required>
+        <label>Address</label>
+        <input type="text" name="address" required>
+        <label>Upload Proof</label>
+        <input type="file" name="proof" accept="application/pdf,image/*" required><br><br>
+        <input type="submit" value="Submit">
+        <br><br><br><br>
+    </form>
+    <footer class="footer">
+        <p>© 2024 UTHIRAM. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('bankForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch('add_bank.php', { method: 'POST', body: new FormData(this) })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Bank details added successfully!");
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

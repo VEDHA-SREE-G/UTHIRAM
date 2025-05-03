@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attender & Patient Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            height: 70px;
+            width: 100%;
+            position:absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header img {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed; /* Change this to fixed */
+            bottom: 0;
+            left: 0; /* Make sure it stays on the left */
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            margin-top: 80px;
+            padding-top: 80px;  /* Space for the fixed header */
+            padding-bottom: 60px; /* Space for the fixed footer */
+            overflow-y: scroll;
+        }
+        .styled-form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+    margin: 20px auto;  /* Add margin to the form for better spacing */
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        input[type="file"],
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <img src="/LOGO.png" height="50px">
+    
+    <form id="patientForm" action="/submit-form" method="POST" enctype="multipart/form-data">
+        <BR>
+        <h2>ATTENDER DETAILS</h2>
+        <hr>
+        <label for="attender">Attender's Name</label>
+        <input type="text" id="attender" name="attender" required>
+        
+        <label for="phone">Attender's Phone No</label>
+        <input type="number" id="phone" name="phone" required>
+        <label for="patient">Attender's Address</label>
+        <input type="text" id="a_address" name="a_address" required>
+        <label for="patient">Attender's Aadhar No</label>
+        <input type="text" id="a_aadhar" name="a_aadhar" required>
+        <label for="report">Upload Attender's Aadhar Copy</label>
+        <input type="file" id="a_copy" name="a_copy" required>
+        
+        <h2>PATIENT DETAILS</h2>
+        <hr>
+        <label for="patient">Patient's Name</label>
+        <input type="text" id="patient" name="patient" required>
+        <label for="patient">Patient's Aadhar No</label>
+        <input type="text" id="p_aadhar" name="p_aadhar" required>
+        <label for="report">Upload Patients's Aadhar Copy</label>
+        <input type="file" id="p_copy" name="p_copy" required>
+        
+        <h2>DOCTOR DETAILS</h2>
+        <hr>
+        <label for="doctor">Doctor's Name</label>
+        <input type="text" id="doctor" name="doctor" required>
+        <label for="regno">Register No</label>
+        <input type="number" id="regno" name="regno" required>
+        <label for="doctor">Doctor's Designation</label>
+        <input type="text" id="desig" name="desig" required>
+        <label for="hospital">Hospital Name</label>
+        <input type="text" id="hospital" name="hospital" required>
+        <label for="address">Hospital Address</label>
+        <input type="text" id="address" name="address" required>
+        
+        <h2>REQUIREMENTS DETAILS</h2>
+        <hr>
+        <label for="group">Blood Group</label>
+        <select id="group" name="group" required>
+            <option value="a+">A positive (A+)</option>
+            <option value="a-">A negative (A-)</option>
+            <option value="b+">B positive (B+)</option>
+            <option value="b-">B negative (B-)</option>
+            <option value="o+">O positive (O+)</option>
+            <option value="o-">O negative (O-)</option>
+            <option value="ab+">AB positive (AB+)</option>
+            <option value="ab-">AB negative (AB-)</option>
+        </select>
+        
+        <label for="units">Units of Blood Needed</label>
+        <input type="number" id="units" name="units" min="1" required>
+        <label for="date">Date and Time of Operation</label>
+        <input type="datetime-local" id="date" name="date" required><br><br>
+        <label for="report">Upload Patient Report</label>
+        <input type="file" id="report" name="report" required><br><br>
+        
+        <input type="submit" value="Submit"><br><br><br>
+        <BR>
+    </form>
+
+    <footer class="footer">
+        <p>© 2024 UTHIRAM. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('patientForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            const formData = new FormData(this);
+    
+            // Perform a fetch request to submit the form
+            fetch('/submit-form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Response status:', response.status); // Log response status
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Success:', data); // Log success message
+                alert('Form submitted successfully!'); // Show success message
+                
+                // Redirect to index.html
+              // window.location.href = 'index.html';
+
+
+            })
+            .catch(error => {
+                console.error('Error:', error); // Log any error for debugging
+                alert('An error occurred while submitting the form.');
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>
